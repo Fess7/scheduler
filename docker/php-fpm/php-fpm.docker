@@ -1,0 +1,16 @@
+FROM php:7.3-fpm-alpine
+
+RUN apk update --no-cache && apk add --no-cache \
+                      shadow \
+                      curl \
+                      tar \
+                      zip \
+                      libzip-dev \
+                      unzip \
+                && docker-php-ext-install zip
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+RUN addgroup -g 1000 -S app && usermod -u 1000 -a -G app www-data
+
+WORKDIR /app

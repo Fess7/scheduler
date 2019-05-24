@@ -1,0 +1,12 @@
+{
+  "name": "fess7/scheduler",
+  "type": "project",
+  "require": {
+    "symfony/process": "^4.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Scheduler\\": "src/"
+    }
+  }
+}
